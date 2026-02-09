@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("./partials/head.ejs", { title: "Members only" }) %>
-  <body class="grid place-items-center min-h-screen">
+  <body class="grid place-items-center min-h-screen p-4">
     <main class="prose">
+        <p class="text-sm uppercase opacity-80">join for free</p>
         <h1>
-            Sign up
+            Create new account
         </h1>
-        <form action="/register" method="POST">
-            <ul>
-            </ul>
+        <form action="/register" method="POST" class="flex flex-col gap-4 max-w-90">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="firstNameInput">First name*</label>
+                    <input type="text" name="first_name" id="firstNameInput" class="input mb-0" required>
+                </div>
+                <div>
+                    <label for="lastNameInput">Last name*</label>
+                    <input type="text" name="last_name" id="lastNameInput" class="input" required>
+                </div>
+            </div>
+            <div>
+                <label for="emailInput">Email*</label>
+                <fieldset class="fieldset">
+                    <input type="email" name="email" id="emailInput" class="input w-full" placeholder="your@email.com" required>
+                    <p class="label mt-0 mb-0 pb-0">This will be your username</p>
+                </fieldset>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="passwordInput">Password*</label>
+                <input type="password" name="password" id="passwordInput" class="input w-full">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg mt-8">Create account</button>
         </form>
     </main>
   </body>
