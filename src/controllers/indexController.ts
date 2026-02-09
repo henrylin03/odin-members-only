@@ -3,11 +3,11 @@ import { matchedData, validationResult } from "express-validator";
 import { validateRegistrationForm } from "../helpers/validation.js";
 
 const showHomePageGet = async (_req: Request, res: Response) => {
-	res.render("index");
+	res.render("pages/index");
 };
 
 const registerUserGet = async (_req: Request, res: Response) => {
-	res.render("signupForm");
+	res.render("pages/signupForm");
 };
 
 const registerUserPost = [
@@ -15,7 +15,9 @@ const registerUserPost = [
 	async (req: Request, res: Response) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty())
-			return res.status(400).render("signupForm", { errors: errors.array() });
+			return res
+				.status(400)
+				.render("pages/signupForm", { errors: errors.array() });
 
 		const formValues = matchedData(req);
 

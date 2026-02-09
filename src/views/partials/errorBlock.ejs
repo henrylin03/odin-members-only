@@ -1,0 +1,7 @@
+<article role="alert" class="alert alert-error alert-outline px-4 py-0 mb-6">
+  <ul role="list" class="marker:text-error">
+    <% errors.forEach(err => { %>
+        <li><%= err.msg %></li>
+    <% }) %>
+  </ul>
+</article>

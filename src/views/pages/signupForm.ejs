@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs", { title: "Members only" }) %>
+  <%- include("../partials/head.ejs", { title: "Members only" }) %>
   <body class="grid place-items-center min-h-screen p-4">
     <main class="prose">
         <p class="text-sm uppercase opacity-80">join for free</p>
         <h1>
             Create new account
         </h1>
+        <% if (typeof errors !== "undefined" && errors.length) {%>
+            <%- include("../partials/errorBlock.ejs", { errors }) %>
+        <% } %>
         <form action="/register" method="POST" class="flex flex-col gap-4 max-w-90">
             <div class="grid grid-cols-2 gap-4">
                 <div>
