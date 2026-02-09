@@ -1,0 +1,3 @@
+const validateRegistrationForm = () => {};
+
+export { validateRegistrationForm };
