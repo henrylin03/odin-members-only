@@ -4,8 +4,12 @@ const showHomePageGet = async (_req: Request, res: Response) => {
 	res.render("index");
 };
 
-const showSignUpFormGet = async (_req: Request, res: Response) => {
+const registerUserGet = async (_req: Request, res: Response) => {
 	res.render("signupForm");
 };
 
-export { showHomePageGet, showSignUpFormGet };
+const registerUserPost = async (_req: Request, res: Response) => {
+	res.redirect("/");
+};
+
+export { showHomePageGet, registerUserGet, registerUserPost };
