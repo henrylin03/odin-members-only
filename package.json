@@ -1,0 +1,32 @@
+{
+	"name": "members-only",
+	"description": "An exclusive clubhouse where members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is, but outside they can only see the story and wonder who wrote it.",
+	"main": "./src/app.js",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsx ./src/app.ts",
+		"seed-db": "node db/populatedb.js",
+		"build:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
+	},
+	"author": "Henry Lin",
+	"license": "MIT",
+	"type": "module",
+	"dependencies": {
+		"@tailwindcss/cli": "^4.1.18",
+		"dotenv": "^17.2.4",
+		"ejs": "^4.0.1",
+		"express": "^5.2.1",
+		"pg": "^8.18.0",
+		"tailwindcss": "^4.1.18"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.14",
+		"@tailwindcss/typography": "^0.5.19",
+		"@types/express": "^5.0.6",
+		"@types/node": "^25.2.2",
+		"daisyui": "^5.5.18",
+		"lefthook": "^2.1.0",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	}
+}
