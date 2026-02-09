@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsx ./src/app.ts",
-		"seed-db": "node db/populatedb.js",
+		"seed-db": "node ./src/db/populatedb.ts",
 		"build:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
 	},
 	"author": "Henry Lin",
@@ -24,6 +24,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"@types/express": "^5.0.6",
 		"@types/node": "^25.2.2",
+		"@types/pg": "^8.16.0",
 		"daisyui": "^5.5.18",
 		"lefthook": "^2.1.0",
 		"tsx": "^4.21.0",
