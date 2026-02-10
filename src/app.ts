@@ -1,5 +1,7 @@
 import path from "node:path";
+import pgSession from "connect-pg-simple";
 import express from "express";
+import expressSession from "express-session";
 import indexRouter from "./routers/indexRouter.js";
 import loginRouter from "./routers/loginRouter.js";
 import registerRouter from "./routers/registerRouter.js";
