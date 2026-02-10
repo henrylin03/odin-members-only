@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { matchedData, validationResult } from "express-validator";
+import { addUser } from "../db/queries.js";
 import { validateRegistrationForm } from "../helpers/validation.js";
 
 const showHomePageGet = async (_req: Request, res: Response) => {
@@ -19,9 +20,7 @@ const registerUserPost = [
 				.status(400)
 				.render("pages/signupForm", { errors: errors.array() });
 
-		const formValues = matchedData(req);
-
-		// await db.doSomething(formValues);
+		await addUser(matchedData(req));
 
 		res.redirect("/register");
 	},
