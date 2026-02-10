@@ -22,7 +22,8 @@ const registerUserPost = [
 				.render("pages/signupForm", { errors: errors.array() });
 
 		const { firstName, lastName, username, password } = matchedData(req);
-		const hashedPassword = await bcrypt.hash(password, 10);
+		const salt = await bcrypt.genSalt();
+		const hashedPassword = await bcrypt.hash(password, salt);
 		const formData = {
 			firstName,
 			lastName,
