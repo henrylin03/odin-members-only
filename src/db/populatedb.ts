@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     first_name varchar(255) NOT NULL,
     last_name varchar(255) NOT NULL,
-    username text NOT NULL UNIQUE,
+    username varchar(255) NOT NULL UNIQUE,
     password text NOT NULL,
     is_member boolean NOT NULL DEFAULT false,
     is_admin boolean NOT NULL DEFAULT false
