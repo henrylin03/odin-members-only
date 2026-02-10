@@ -1,11 +1,13 @@
 import path from "node:path";
 import pgSession from "connect-pg-simple";
+import dotenv from "dotenv";
 import express from "express";
-import expressSession from "express-session";
+import session from "express-session";
 import indexRouter from "./routers/indexRouter.js";
 import loginRouter from "./routers/loginRouter.js";
 import registerRouter from "./routers/registerRouter.js";
 
+dotenv.config();
 const app = express();
 
 const currentPath = import.meta.dirname;
@@ -15,9 +17,17 @@ app.use(express.static(path.join(currentPath, "..", "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(currentPath, "views"));
 
-/* middleware to parse data in request body */
+/* middleware */
+app.use(
+	session({
+		secret: process.env.COOKIE_SECRET,
+		resave: false,
+		saveUninitialized: false,
+	}),
+);
 app.use(express.urlencoded({ extended: true }));
 
+/* routes */
 app.use("/", indexRouter);
 app.use("/register", registerRouter);
 app.use("/login", loginRouter);
