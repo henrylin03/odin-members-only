@@ -3,6 +3,7 @@ import genFunc from "connect-pg-simple";
 import "dotenv/config";
 import express from "express";
 import session from "express-session";
+import passport from "passport";
 import { pool } from "./db/pool.js";
 import indexRouter from "./routers/indexRouter.js";
 import loginRouter from "./routers/loginRouter.js";
@@ -38,6 +39,7 @@ app.use(
 		}, // 30 days
 	}),
 );
+app.use(passport.session());
 
 app.use(express.urlencoded({ extended: true }));
 
