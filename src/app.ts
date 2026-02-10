@@ -1,6 +1,7 @@
 import path from "node:path";
 import express from "express";
 import indexRouter from "./routers/indexRouter.js";
+import registerRouter from "./routers/registerRouter.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.set("views", path.join(currentPath, "views"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
+app.use("/register", registerRouter);
 
 const PORT = 3000;
 app.listen(PORT, (err) => {
