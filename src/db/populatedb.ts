@@ -2,11 +2,11 @@
 
 import dotenv from "dotenv";
 import { Client } from "pg";
+import { LOCAL_DATABASE_URL } from "./constants.js";
 
 dotenv.config();
 
 const main = async () => {
-	const DATABASE_NAME = "members_only";
 	const CREATE_TABLES_QUERY = `
 CREATE TABLE IF NOT EXISTS users (
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -27,10 +27,9 @@ CREATE TABLE IF NOT EXISTS messages (
 );
 `;
 
-	const localDatabaseUrl = `postgresql://${process.env.USER_NAME}:${process.env.PASSWORD}@localhost:5432/${DATABASE_NAME}`;
 	console.log("seeding...");
 	const client = new Client({
-		connectionString: localDatabaseUrl,
+		connectionString: LOCAL_DATABASE_URL,
 	});
 
 	await client.connect();
