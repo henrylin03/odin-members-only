@@ -9,6 +9,6 @@ const indexRouter = Router();
 
 indexRouter.get("/", showHomePageGet);
 indexRouter.get("/register", registerUserGet);
-indexRouter.post("/register", registerUserPost);
+indexRouter.post("/register", ...registerUserPost);
 
 export default indexRouter;
