@@ -2,7 +2,7 @@
 
 import dotenv from "dotenv";
 import { Client } from "pg";
-import { LOCAL_DATABASE_URL } from "./constants.js";
+import { LOCAL_DATABASE_URL } from "../constants.js";
 
 dotenv.config();
 
