@@ -3,7 +3,7 @@ import genFunc from "connect-pg-simple";
 import "dotenv/config";
 import express from "express";
 import session from "express-session";
-import passport from "passport";
+import passport from "./config/passport.js";
 import { pool } from "./db/pool.js";
 import indexRouter from "./routers/indexRouter.js";
 import loginRouter from "./routers/loginRouter.js";

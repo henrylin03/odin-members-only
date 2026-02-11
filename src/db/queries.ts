@@ -1,14 +1,7 @@
+import type { UserData } from "../models/user.js";
 import { pool } from "./pool.js";
 
-type Email = `${string}@${string}`;
-type RegistrationFormData = {
-	firstName: string;
-	lastName: string;
-	username: Email;
-	password: string;
-};
-
-const addUser = async (userData: RegistrationFormData) => {
+const addUser = async (userData: UserData) => {
 	const { firstName, lastName, username, password } = userData;
 	try {
 		await pool.query(
@@ -22,4 +15,19 @@ const addUser = async (userData: RegistrationFormData) => {
 	}
 };
 
-export { addUser };
+// LocalStrategy has to accept username as type string
+const getUserByUsername = async (username: string) => {
+	const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
+		username,
+	]);
+	if (!rows.length) return null;
+	return rows[0];
+};
+
+const getUserById = async (id: string) => {
+	const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+	if (!rows.length) return null;
+	return rows[0];
+};
+
+export { addUser, getUserById, getUserByUsername };
