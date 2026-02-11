@@ -22,7 +22,7 @@ const addUser = async (userData: User) => {
 	}
 };
 
-const getUser = async (username: string) => {
+const getUserByUsername = async (username: string) => {
 	const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
 		username,
 	]);
@@ -30,4 +30,10 @@ const getUser = async (username: string) => {
 	return rows[0];
 };
 
-export { addUser, getUser };
+const getUserById = async (id: string) => {
+	const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+	if (!rows.length) return null;
+	return rows[0];
+};
+
+export { addUser, getUserById, getUserByUsername };

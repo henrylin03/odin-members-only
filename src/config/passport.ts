@@ -1,12 +1,12 @@
 import bcrypt from "bcryptjs";
 import passport from "passport";
 import LocalStrategy from "passport-local";
-import { getUser, type User } from "../db/queries.js";
+import { getUserById, getUserByUsername, type User } from "../db/queries.js";
 
 passport.use(
 	new LocalStrategy.Strategy(async (username, password, done) => {
 		try {
-			const user: User | null = await getUser(username);
+			const user: User | null = await getUserByUsername(username);
 			if (user === null)
 				return done(null, false, { message: "Incorrect username" });
 
@@ -15,10 +15,20 @@ passport.use(
 				return done(null, false, { message: "Incorrect password" });
 
 			return done(null, user);
-		} catch (error) {
-			return done(error);
+		} catch (err) {
+			return done(err);
 		}
 	}),
 );
+
+passport.serializeUser((user, done) => done(null, user.id));
+passport.deserializeUser(async (id: string, done) => {
+	try {
+		const user = await getUserById(id);
+		done(null, user);
+	} catch (err) {
+		done(err);
+	}
+});
 
 export default passport;
