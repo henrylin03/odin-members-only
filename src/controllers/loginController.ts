@@ -16,8 +16,6 @@ const getLoginErrorMessage = (fieldWithError: LoginField): string => {
 };
 
 const loginGet = async (req: Request, res: Response) => {
-	console.log("req.session:", req.session);
-
 	const { session } = req;
 	if (!("flash" in session) || session.flash.error.length === 0)
 		return res.render("pages/loginForm");
