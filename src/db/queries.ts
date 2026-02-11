@@ -1,12 +1,5 @@
+import type { User } from "../models/user.js";
 import { pool } from "./pool.js";
-
-type Email = `${string}@${string}`;
-export type User = {
-	firstName: string;
-	lastName: string;
-	username: Email;
-	password: string;
-};
 
 const addUser = async (userData: User) => {
 	const { firstName, lastName, username, password } = userData;
