@@ -4,4 +4,8 @@ const showHomePageGet = async (_req: Request, res: Response) => {
 	res.render("pages/index");
 };
 
-export { showHomePageGet };
+const protectedPageGet = async (_req: Request, res: Response) => {
+	res.render("pages/protected");
+};
+
+export { showHomePageGet, protectedPageGet };
