@@ -13,27 +13,24 @@
     <% } %>
     <form action="/register" method="POST" class="flex flex-col gap-4 max-w-90">
       <div class="grid grid-cols-2 gap-4">
-        <div>
+        <div class="flex flex-col gap-2">
           <label for="firstNameInput">First name*</label>
           <input type="text" name="firstName" id="firstNameInput" class="input mb-0" required>
         </div>
-        <div>
+        <div class="flex flex-col gap-2">
           <label for="lastNameInput">Last name*</label>
           <input type="text" name="lastName" id="lastNameInput" class="input" required>
         </div>
       </div>
-      <div>
+      <div class="flex flex-col gap-2">
         <label for="usernameInput">Email*</label>
-        <fieldset class="fieldset">
-          <label for="usernameInput" class="input w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-[1em] opacity-50 lucide lucide-mail-icon lucide-mail">
-              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-            </svg>
-            <input type="email" name="username" id="usernameInput" class="grow" placeholder="your@email.com" required>
-          </label>
-          <p class="label mt-0 mb-0 pb-0">This will be your username</p>
-        </fieldset>
+        <label for="usernameInput" class="input w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 opacity-50 lucide lucide-mail-icon lucide-mail">
+            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+          </svg>
+          <input type="email" name="username" id="usernameInput" class="grow" placeholder="your@email.com" required>
+        </label>
       </div>
       <div class="flex flex-col gap-2">
         <label for="passwordInput">Password*</label>
