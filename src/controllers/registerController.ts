@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 import type { Request, Response } from "express";
 import { matchedData, validationResult } from "express-validator";
-import { addUser } from "../db/queries.js";
-import { validateRegistrationForm } from "../helpers/validation.js";
+import { addUser } from "@/db/queries.js";
+import { validateRegistrationForm } from "@/helpers/validation.js";
 
 const registerUserGet = async (_req: Request, res: Response) => {
 	res.render("pages/signupForm");

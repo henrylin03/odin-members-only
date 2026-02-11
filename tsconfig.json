@@ -10,11 +10,14 @@
 		"module": "nodenext",
 		"moduleResolution": "nodenext",
 		"target": "esnext",
-		"types": [],
 		// For nodejs:
-		// "lib": ["esnext"],
-		// "types": ["node"],
-		// and npm install -D @types/node
+		"types": ["node"],
+		"lib": ["esnext"],
+
+		"paths": {
+			"@/*": ["./src/*"],
+			"@pages/*": ["./src/views/pages/*"]
+		},
 
 		// Other Outputs
 		"sourceMap": true,

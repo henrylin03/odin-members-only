@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
 	registerUserGet,
 	registerUserPost,
-} from "../controllers/registerController.js";
+} from "@/controllers/registerController.js";
 
 const registerRouter = Router();
 
