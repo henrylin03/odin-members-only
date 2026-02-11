@@ -1,6 +1,7 @@
 import path from "node:path";
 import genFunc from "connect-pg-simple";
 import "dotenv/config";
+import flash from "connect-flash";
 import express from "express";
 import session from "express-session";
 import passport from "./config/passport.js";
@@ -40,6 +41,8 @@ app.use(
 	}),
 );
 app.use(passport.session());
+app.use(flash());
+
 app.use((req, res, next) => {
 	res.locals.currentUser = req.user;
 	next();
