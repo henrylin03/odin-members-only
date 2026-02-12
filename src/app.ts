@@ -3,6 +3,7 @@ import genFunc from "connect-pg-simple";
 import "dotenv/config";
 import flash from "connect-flash";
 import express from "express";
+import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import passport from "./config/passport.js";
 import { pool } from "./db/pool.js";
@@ -17,6 +18,8 @@ app.use(express.static(path.join(currentPath, "..", "public")));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(currentPath, "views"));
+app.use(expressLayouts);
+app.set("layout", "layouts/baseLayout");
 
 /* middleware */
 const cookieSecret = process.env.COOKIE_SECRET;

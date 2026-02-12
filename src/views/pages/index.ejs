@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<%- include("../partials/head.ejs", { title: "Members only" }) %>
+<main class="prose w-full m-auto grid place-items-center">
+  <% if (locals.currentUser) {%>
+  <h1>WELCOME BACK <%= currentUser.username %></h1>
+  <a href="/logout">LOG OUT</a>
+  <% } else { %>
+  <h1 class="text-center">Register now</h1>
+  <a role="button" href="/register" class="btn btn-primary btn-lg">Sign up</a>
+  <%}%>
 
-<body class="grid place-items-center min-h-screen">
-  <main class="prose flex flex-col items-center">
-    <% if (locals.currentUser) {%>
-    <h1>WELCOME BACK <%= currentUser.username %></h1>
-    <a href="/logout">LOG OUT</a>
-    <% } else { %>
-    <h1 class="text-center">Register now</h1>
-    <a role="button" href="/register" class="btn btn-primary btn-lg">Sign up</a>
-    <%}%>
-
-    </main>
-  </body>
-</html>
+</main>
