@@ -9,11 +9,12 @@
       <button onclick="becomeMemberModal.showModal()">Become a member</button>
     </li>
     <li>
-      <button>Join as admin</button>
+      <button onclick="becomeAdminModal.showModal()">Join as admin</button>
     </li>
     <li>
       <a href="/logout">Logout</a>
     </li>
   </ul>
 </div>
-<%- include("../modal.ejs", { id: "becomeMemberModal", submitPath: "/become-member" } ) %>
+<%- include("../modal.ejs", { id: "becomeMemberModal", submitPath: "/become-member", title: "Become a member" } ) %>
+<%- include("../modal.ejs", { id: "becomeAdminModal", submitPath: "/become-admin", title: "Admin elevation" } ) %>
