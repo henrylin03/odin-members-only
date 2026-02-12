@@ -1,0 +1,18 @@
+<div class="dropdown dropdown-end">
+  <button tabindex="0" class="btn btn-ghost btn-circle avatar">
+    <div class="w-12 rounded-full">
+      <img alt="Avatar" src="https://api.dicebear.com/9.x/initials/svg?seed='<%= locals.currentUser.first_name %> <%= locals.currentUser.last_name %>'" />
+    </div>
+  </button>
+  <ul tabindex="-1" class="menu dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow border border-gray-700">
+    <li>
+      <a href="#">Become a member</a>
+    </li>
+    <li>
+      <a href="#">Join as admin</a>
+    </li>
+    <li>
+      <a href="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
