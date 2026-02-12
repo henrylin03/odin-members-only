@@ -1,4 +1,6 @@
 import { Pool } from "pg";
-import { LOCAL_DATABASE_URL } from "@/constants.js";
+import "dotenv/config";
 
-export const pool = new Pool({ connectionString: LOCAL_DATABASE_URL });
+export const pool = new Pool({
+	connectionString: process.env.LOCAL_DATABASE_URL,
+});
