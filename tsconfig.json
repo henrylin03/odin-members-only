@@ -16,7 +16,8 @@
 
 		"paths": {
 			"@/*": ["./src/*"],
-			"@pages/*": ["./src/views/pages/*"]
+			"@pages/*": ["./src/views/pages/*"],
+			"@components/*": ["./src/views/components/*"]
 		},
 
 		// Other Outputs

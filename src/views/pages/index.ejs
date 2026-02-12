@@ -2,8 +2,9 @@
 <html lang="en">
 <%- include("../partials/head.ejs", { title: "Members only" }) %>
 
-<body class="grid place-items-center min-h-screen">
-  <main class="prose flex flex-col items-center">
+<body class="min-h-screen w-full flex flex-col">
+  <%- include ("../components/header.ejs") %>
+  <main class="prose w-full m-auto grid place-items-center">
     <% if (locals.currentUser) {%>
     <h1>WELCOME BACK <%= currentUser.username %></h1>
     <a href="/logout">LOG OUT</a>
