@@ -15,6 +15,23 @@ const addUser = async (userData: UserData) => {
 	}
 };
 
+const addThought = async (
+	authorId: string,
+	thoughtTitle: string,
+	thoughtBody: string,
+) => {
+	try {
+		await pool.query(
+			"INSERT INTO thoughts (author_id, title, text) VALUES ($1, $2, $3)",
+			[authorId, thoughtTitle, thoughtBody],
+		);
+		console.log("Thought successfully added to database.");
+	} catch (err) {
+		console.error("Error adding thought:", err);
+		throw err;
+	}
+};
+
 // LocalStrategy has to accept username as type string
 const getUserByUsername = async (username: string) => {
 	const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
@@ -69,6 +86,7 @@ const elevateUserToAdmin = async (userId: string) => {
 };
 
 export {
+	addThought,
 	addUser,
 	elevateUserToMember,
 	elevateUserToAdmin,

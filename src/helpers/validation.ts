@@ -34,4 +34,16 @@ const validateRegistrationForm = [
 		.withMessage("Passwords must match"),
 ];
 
-export { validateRegistrationForm };
+const validateNewThought = [
+	body("thoughtTitle")
+		.trim()
+		.isLength({ min: 1, max: 70 })
+		.withMessage("Title of thought must be between 1 and 70 characters"),
+
+	body("thoughtBody")
+		.trim()
+		.isLength({ min: 1, max: 255 })
+		.withMessage(`Thought ${CHAR_LENGTH_ERROR_255}`),
+];
+
+export { validateNewThought, validateRegistrationForm };
