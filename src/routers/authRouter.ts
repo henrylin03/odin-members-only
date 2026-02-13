@@ -1,13 +1,14 @@
 import { Router } from "express";
+import { loginGet, loginPost } from "@/controllers/auth/loginController.js";
+import { logoutGet } from "@/controllers/auth/logoutController.js";
 import {
-	loginGet,
-	loginPost,
-	logoutGet,
-	signupUserGet,
-	signupUserPost,
 	updateUserToAdminPost,
 	updateUserToMemberPost,
-} from "@/controllers/authController.js";
+} from "@/controllers/auth/permissionsController.js";
+import {
+	signupUserGet,
+	signupUserPost,
+} from "@/controllers/auth/signupController.js";
 
 const authRouter = Router();
 
