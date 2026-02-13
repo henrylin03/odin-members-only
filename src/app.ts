@@ -8,9 +8,6 @@ import session from "express-session";
 import passport from "./config/passport.js";
 import { pool } from "./db/pool.js";
 import authRouter from "./routers/authRouter.js";
-import loginRouter from "./routers/loginRouter.js";
-import permissionsRouter from "./routers/permissionsRouter.js";
-import registerRouter from "./routers/registerRouter.js";
 import thoughtsRouter from "./routers/thoughtsRouter.js";
 
 const app = express();

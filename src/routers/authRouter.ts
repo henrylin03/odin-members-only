@@ -1,15 +1,24 @@
 import { Router } from "express";
-import { logout } from "@/controllers/authController.js";
 import {
-	registerUserGet,
-	registerUserPost,
-} from "@/controllers/registerController.js";
+	loginGet,
+	loginPost,
+	logoutGet,
+	signupUserGet,
+	signupUserPost,
+	updateUserToAdminPost,
+	updateUserToMemberPost,
+} from "@/controllers/authController.js";
 
 const authRouter = Router();
 
-authRouter.get("/signup", registerUserGet);
-authRouter.post("/signup", ...registerUserPost);
+authRouter.get("/signup", signupUserGet);
+authRouter.post("/signup", ...signupUserPost);
 
-authRouter.get("/logout", logout);
+authRouter.get("/login", loginGet);
+authRouter.post("/login", loginPost);
+authRouter.get("/logout", logoutGet);
+
+authRouter.post("/become-member", updateUserToMemberPost);
+authRouter.post("/become-admin", updateUserToAdminPost);
 
 export default authRouter;
