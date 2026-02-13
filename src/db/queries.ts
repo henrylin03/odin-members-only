@@ -49,7 +49,7 @@ const elevateUserToMember = async (userId: string) => {
 		]);
 		console.log("User has been added as member");
 	} catch (err) {
-		console.error("Error when elevating user to 'member':", err);
+		console.error("Error when elevating user to member status:", err);
 		throw err;
 	}
 };
@@ -61,9 +61,9 @@ const elevateUserToAdmin = async (userId: string) => {
 			"UPDATE users SET is_admin = true, is_member = true WHERE id = $1",
 			[userId],
 		);
-		console.log("User has been added as member");
+		console.log("User has been added as admin and member");
 	} catch (err) {
-		console.error("Error when elevating user to 'member':", err);
+		console.error("Error when elevating user to admin status:", err);
 		throw err;
 	}
 };
