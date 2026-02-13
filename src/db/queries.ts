@@ -54,9 +54,24 @@ const elevateUserToMember = async (userId: string) => {
 	}
 };
 
+const elevateUserToAdmin = async (userId: string) => {
+	try {
+		// all admins should also be members
+		await pool.query(
+			"UPDATE users SET is_admin = true, is_member = true WHERE id = $1",
+			[userId],
+		);
+		console.log("User has been added as member");
+	} catch (err) {
+		console.error("Error when elevating user to 'member':", err);
+		throw err;
+	}
+};
+
 export {
 	addUser,
 	elevateUserToMember,
+	elevateUserToAdmin,
 	getPermissionElevationPasskey,
 	getUserById,
 	getUserByUsername,
