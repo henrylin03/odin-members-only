@@ -1,0 +1,26 @@
+<main class="w-90 mx-auto my-10 px-4">
+  <header class="prose mx-auto flex items-center justify-between">
+    <h1 class="mb-0 text-3xl">Add thought</h1>
+    <a role="button" class="btn btn-circle btn-ghost" href="/thoughts"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x w-4 h-4">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M18 6l-12 12" />
+        <path d="M6 6l12 12" />
+      </svg></a>
+  </header>
+
+  <form action="/thoughts/new" method="POST" class="mt-8 mx-auto">
+    <ul class="flex flex-col gap-4">
+      <li>
+        <input type="text" name="thoughtTitle" id="titleInput" class="input w-full prose validator" placeholder="Title*" required minLength="1" maxLength="70">
+        <p class="validator-hint hidden">Must be between 1 and 70 characters</p>
+      </li>
+      <li>
+        <textarea name="thoughtBody" id="thoughtInput" class="textarea w-full prose validator" placeholder="Add your thoughts*" required rows="6"></textarea>
+        <p class="validator-hint hidden">Must be between 1 and 255 characters</p>
+      </li>
+      <li class="self-end">
+        <button type="submit" class="btn btn-primary">Post</button>
+      </li>
+    </ul>
+  </form>
+</main>
