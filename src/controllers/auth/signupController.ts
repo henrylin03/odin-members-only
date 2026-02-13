@@ -4,11 +4,11 @@ import { matchedData, validationResult } from "express-validator";
 import { addUser } from "@/db/queries.js";
 import { validateRegistrationForm } from "@/helpers/validation.js";
 
-const registerUserGet = async (_req: Request, res: Response) => {
+const signupUserGet = async (_req: Request, res: Response) => {
 	res.render("pages/signupForm");
 };
 
-const registerUserPost = [
+const signupUserPost = [
 	validateRegistrationForm,
 	async (req: Request, res: Response) => {
 		const errors = validationResult(req);
@@ -33,4 +33,4 @@ const registerUserPost = [
 	},
 ];
 
-export { registerUserGet, registerUserPost };
+export { signupUserGet, signupUserPost };

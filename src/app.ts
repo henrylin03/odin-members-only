@@ -7,10 +7,8 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import passport from "./config/passport.js";
 import { pool } from "./db/pool.js";
-import indexRouter from "./routers/indexRouter.js";
-import loginRouter from "./routers/loginRouter.js";
-import permissionsRouter from "./routers/permissionsRouter.js";
-import registerRouter from "./routers/registerRouter.js";
+import authRouter from "./routers/authRouter.js";
+import thoughtsRouter from "./routers/thoughtsRouter.js";
 
 const app = express();
 
@@ -55,10 +53,10 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 
 /* routes */
-app.use("/", indexRouter);
-app.use("/", permissionsRouter);
-app.use("/register", registerRouter);
-app.use("/login", loginRouter);
+app.get("/", (_req, res) => res.redirect("/thoughts"));
+
+app.use("/", authRouter);
+app.use("/thoughts", thoughtsRouter);
 
 const PORT = 3000;
 app.listen(PORT, (err) => {

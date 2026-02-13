@@ -6,7 +6,7 @@ import {
 	getPermissionElevationPasskey,
 } from "@/db/queries.js";
 
-export const updateUserToMemberPost = async (req: Request, res: Response) => {
+const updateUserToMemberPost = async (req: Request, res: Response) => {
 	const userEnteredPasskey = req.body.passkey;
 	const user = req.user;
 	if (!user) return res.redirect("/login");
@@ -31,7 +31,7 @@ export const updateUserToMemberPost = async (req: Request, res: Response) => {
 	res.redirect("/");
 };
 
-export const updateUserToAdminPost = async (req: Request, res: Response) => {
+const updateUserToAdminPost = async (req: Request, res: Response) => {
 	const userEnteredPasskey = req.body.passkey;
 	const user = req.user;
 	if (!user) return res.redirect("/login");
@@ -55,3 +55,5 @@ export const updateUserToAdminPost = async (req: Request, res: Response) => {
 
 	res.redirect("/");
 };
+
+export { updateUserToMemberPost, updateUserToAdminPost };

@@ -31,4 +31,4 @@ const loginPost = passport.authenticate("local", {
 	failureRedirect: "/login",
 });
 
-export { loginPost, loginGet };
+export { loginGet, loginPost };
