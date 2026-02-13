@@ -5,7 +5,7 @@
     <% if (typeof errors !== "undefined" && errors.length) {%>
     <%- include("../partials/errorList.ejs", { errors }) %>
     <% } %>
-    <form action="/register" method="POST" class="flex flex-col gap-4 ">
+    <form action="/signup" method="POST" class="flex flex-col gap-4 ">
       <div class="grid grid-cols-2 gap-3">
         <div class="flex flex-col gap-2">
           <label for="firstNameInput">First name*</label>
