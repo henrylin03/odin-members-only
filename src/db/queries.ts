@@ -42,7 +42,8 @@ SELECT
 	t.timestamp
 FROM thoughts AS t
 JOIN users AS u 
-	ON t.author_id = u.id`);
+	ON t.author_id = u.id
+ORDER BY t.timestamp DESC;`);
 
 	return rows;
 };

@@ -5,7 +5,6 @@ import { validateNewThought } from "@/helpers/validation.js";
 
 const allThoughtsGet = async (_req: Request, res: Response) => {
 	const allThoughts = await getAllThoughts();
-	console.log(allThoughts);
 	res.render("pages/allThoughts", { allThoughts });
 };
 
