@@ -4,8 +4,8 @@ import { addThought, getAllThoughts } from "@/db/queries.js";
 import { validateNewThought } from "@/helpers/validation.js";
 
 const allThoughtsGet = async (_req: Request, res: Response) => {
-	const allThoughts = await getAllThoughts();
-	res.render("pages/allThoughts", { allThoughts });
+	const thoughts = await getAllThoughts();
+	res.render("pages/allThoughts", { thoughts });
 };
 
 const newThoughtGet = (_req: Request, res: Response) => {

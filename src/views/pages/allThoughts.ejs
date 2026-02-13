@@ -1,1 +1,12 @@
-<h1>Latest thoughts</h1>
+<main class="w-xl max-w-full py-10 px-4 prose mx-auto">
+  <h1 class="text-3xl">Latest thoughts</h1>
+  <% if (thoughts.length > 0) { %>
+  <ul class="not-prose w-full flex flex-col gap-4">
+    <% thoughts.forEach(thought => { %>
+    <li>
+      <%- include("../partials/thoughtCard", { thought })%>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</main>
