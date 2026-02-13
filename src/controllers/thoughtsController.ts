@@ -7,4 +7,8 @@ const newThoughtGet = (_req: Request, res: Response) => {
 	res.render("pages/newThought", { title: "Add thought" });
 };
 
-export { allThoughtsGet, newThoughtGet };
+const newThoughtPost = (_req: Request, res: Response) => {
+	res.redirect("/thoughts");
+};
+
+export { allThoughtsGet, newThoughtGet, newThoughtPost };
