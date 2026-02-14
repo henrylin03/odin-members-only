@@ -1,15 +1,15 @@
-<article class="p-4 flex gap-4 shadow border border-gray-600 rounded-xl max-w-full">
-  <div class="avatar flex-none max-w-full">
-    <div class="w-8 rounded-full">
+<article class="p-4 flex gap-4 shadow border border-gray-600 rounded-xl">
+  <div class="avatar flex-none">
+    <div class="w-8 h-8 rounded-full">
       <img alt="Avatar" src="https://api.dicebear.com/9.x/initials/svg?seed='<%= thought.author_first_name %> <%= thought.author_last_name %>'" />
     </div>
   </div>
-  <div class="flex-1 flex flex-col gap-2 prose max-w-full">
+  <div class="flex-1 flex flex-col gap-1 prose w-8/10 hyphens-manual">
     <header class="flex items-center justify-between">
       <p class="prose-sm"><%= thought.author_first_name %> <%=thought.author_last_name%></p>
       <p class="prose-sm opacity-50"><%= thought.timeSincePosting %> ago</p>
     </header>
-    <h2><%= thought.title %></h2>
-    <p><%= thought.text %></p>
+    <h2 class="text-2xl font-bold wrap-break-word "><%= thought.title %></h2>
+    <p class="wrap-break-word"><%= thought.text %></p>
   </div>
 </article>
