@@ -32,7 +32,7 @@ const allThoughtsGet = async (_req: Request, res: Response) => {
 		return { ...attributes, timeSincePosting: dayjs(timestamp).toNow(true) };
 	});
 
-	res.render("pages/allThoughts", { thoughts });
+	res.render("pages/allThoughts", { title: "Latest thoughts", thoughts });
 };
 
 const newThoughtGet = (_req: Request, res: Response) => {
